@@ -18,6 +18,7 @@ HP2920(config-openflow-inst)#exit
 HP2920(config-openflow)#enable
 
 ***Verify the openflow***
+
 HP2920(config)#show openflow
 
 
