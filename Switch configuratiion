@@ -1,0 +1,26 @@
+***Configure the HP2920 switch*** 
+
+HP2920(config)#int vlan 10    //vlan 10 is the dataplane
+HP2920(config-vlan)#untagged ethernet 1-10  // port 1-10 are in vlan 10
+HP2920(config)#exit
+
+HP2920(config)#int vlan 192  //vlan 192 is the controll plane
+HP2920(config)#untagged ethernet 11-12  //port 11-12 are in vlan 192
+
+HP2920(config)# openflow
+HP2920(config-openflow)# controller-id 1 192.168.0.120 controller-interface vlan 192 
+HP2920(config-openflow)#instance "vlan10"
+HP2920(config-openflow-inst)#member vlan 10
+HP2920(config-openflow-inst)#controller-id 1
+HP2920(config-openflow-inst)#version 1.3
+HP2920(config-openflow-inst)#enable
+HP2920(config-openflow-inst)#exit
+HP2920(config-openflow)#enable
+
+***Verify the openflow***
+HP2920(config)#show openflow
+
+
+***Check the datapath id and the status of openflow***
+
+HP2920(config)#show openflow instance vlan10
