@@ -1,4 +1,4 @@
-OUTPUTcurl -X POST -d '{
+curl -X POST -d '{
 "dpid":3342545872095552,
 "cookie":1,
 "cookie_mask":1,
