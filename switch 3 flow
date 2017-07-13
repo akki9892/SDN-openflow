@@ -13,9 +13,27 @@ curl -X POST -d '{
 "actions":[
 {
 "type":"OUTPUT",
-"port":7
+"port":9
 }
 ]
 }'http://localhost:8080/stats/flowentry/add
 
-
+curl -X POST -d '{
+"dpid":3342545872095552,
+"cookie":1,
+"cookie_mask":1,
+"table_id":100,
+"idle_timeout":0,
+"hard_timeout":0,
+"priority":11111,
+"flags":1,
+"match":{
+"in_port":9
+},
+"actions":[
+{
+"type":"OUTPUT",
+"port":7
+}
+]
+}'http://localhost:8080/stats/flowentry/add
