@@ -2,7 +2,7 @@
 
 HP2920(config)#int vlan 10    //vlan 10 is the dataplane
 HP2920(config-vlan)#untagged ethernet 1-10  // port 1-10 are in vlan 10
-HP2920(config-vlan)#ip address 10.0.0.3 255.0.0.0
+HP2920(config-vlan)#ip address 20.0.0.3 255.0.0.0
 HP2920(config)#exit
 
 HP2920(config)#int vlan 192  //vlan 192 is the controll plane
